@@ -7,6 +7,7 @@ public class Ball : MonoBehaviour
     public float moveForce;
     public float jumpSpeed;
     Rigidbody2D rb;
+    bool isGrounded;
 
     void Start()
     {
@@ -21,9 +22,23 @@ public class Ball : MonoBehaviour
         
         //soka
 
-        if(Input.GetKeyDown(KeyCode.Space)) 
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded) 
         {
             rb.velocity += Vector2.up * jumpSpeed;
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        isGrounded = true;    
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        isGrounded = false;
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.)
     }
 }
