@@ -30,7 +30,12 @@ public class Ball : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        isGrounded = true;    
+        isGrounded = true;   
+        
+        if(other.gameObject.CompareTag("Enemy"))
+        {
+            FindAnyObjectByType<GameManager>().Lose();
+        }
     }
 
     void OnCollisionExit2D(Collision2D other)
@@ -39,6 +44,9 @@ public class Ball : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.)
+       if(other.gameObject.name == "Checkpoint")
+        {
+            FindAnyObjectByType<GameManager>().Win();
+        }
     }
 }

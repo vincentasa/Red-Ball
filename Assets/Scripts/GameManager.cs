@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public int hp;
     public int currentLevel;
+    bool hasWon;
 
     public List<string> levels;
 
@@ -18,6 +19,9 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
+        if (hasWon) return; 
+
+
         currentLevel++;
         Invoke("LoadNextScene", 1f);
     }
@@ -26,7 +30,7 @@ public class GameManager : MonoBehaviour
     {
         var levelName = levels[currentLevel];
         SceneManager.LoadScene(levelName);
-
+        hasWon = false;
     }
     
     public void Lose()
