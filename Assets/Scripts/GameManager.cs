@@ -16,8 +16,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-    }
 
+        if(FindObjectsOfType<GameManager>().Length > 1)
+        {
+            Destroy(gameObject);
+        }
+    }
     void Update()
     {
         var target = Vector3.one * targetTransitionScale;
