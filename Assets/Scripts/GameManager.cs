@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
     public void LoadNextScene()
     {
         var levelName = levels[currentLevel];
-        currentLevel = 0;
         SceneManager.LoadScene(levelName);
         hasWon = false;
         targetTransitionScale = 0;
