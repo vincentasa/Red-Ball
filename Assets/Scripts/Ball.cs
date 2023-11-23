@@ -45,7 +45,7 @@ public class Ball : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-       if(other.gameObject.name == "Checkpoint")
+       if(other.gameObject.CompareTag("Checkpoint"))
         {
             FindAnyObjectByType<GameManager>().Win();
         }
