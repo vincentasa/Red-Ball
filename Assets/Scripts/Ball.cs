@@ -35,6 +35,7 @@ public class Ball : MonoBehaviour
         if(other.gameObject.CompareTag("Enemy"))
         {
             FindAnyObjectByType<GameManager>().Lose();
+            Destroy(gameObject);
         }
     }
 
