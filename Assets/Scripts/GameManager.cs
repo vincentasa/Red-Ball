@@ -61,13 +61,12 @@ public class GameManager : MonoBehaviour
         hp--;
         if (hp > 0)
         {
-            // restart
+
             Invoke("LoadNextScene", 1f);
             source.PlayOneShot(loseSound);
         }
         else
         {
-            // restart to level 0
             currentLevel = 0;
             Invoke("LoadNextScene", 1f);
             source.PlayOneShot(gameoverSound);
