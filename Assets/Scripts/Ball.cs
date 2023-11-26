@@ -6,11 +6,14 @@ public class Ball : MonoBehaviour
 {
     public float moveForce;
     public float jumpSpeed;
+    public float speedLimit = 10;
     Rigidbody2D rb;
     bool isGrounded;
+    public GameObject gameManager;
 
     void Start()
     {
+        Instantiate(gameManager);
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -18,11 +21,12 @@ public class Ball : MonoBehaviour
     void Update()
     {
         var hor = Input.GetAxisRaw("Horizontal");
-        rb.AddForce(new Vector2(hor, 0) * moveForce);
-        
-        //soka
+        rb.AddForce(new Vector2(hor, 0) * moveForce * Time.deltaTime);
 
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded) 
+        if (rb.velocity.x > speedLimit) rb.velocity = new Vector2(speedLimit, rb.velocity.y);
+        if (rb.velocity.x < -speedLimit) rb.velocity = new Vector2(-speedLimit, rb.velocity.y);
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) 
         {
             rb.velocity += Vector2.up * jumpSpeed;
         }

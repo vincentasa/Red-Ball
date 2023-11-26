@@ -164,6 +164,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveForce: 5
   jumpSpeed: 10
+  speedLimit: 10
+  gameManager: {fileID: 8583959302985229624, guid: 823d73f4864c1a14da2ffed0f5e936a0, type: 3}
 --- !u!1 &7968777301426147065
 GameObject:
   m_ObjectHideFlags: 0
